@@ -6,8 +6,22 @@
 - Python仮想環境の作成と軌道に成功
 - Gitの初期化と'.gitignore' による環境分離が分かった
 
-## 1/29 (Day 1)
-- 関係データベースにおける主キーと外部キーの役割について理解できた
-- read-only field(読み取り専用フィールド)について理解した
-- データの主従関係を決めて循環参照を避けるべき
-- Supplierはデータベースの本体、supplier_pydanticとｓupplier_pydanticInはそれぞれ出力・入力用データ形式
+## 1/29 (Day 1)　- BackendとCRUD
+
+###　学び
+* RDB(関係データベース): 主キーと外部キーの役割
+* read-only field(読み取り専用フィールド)
+* データの主従関係を決めて循環参照を避けるべき
+* Pydanticの使い分け:
+    * `Supplier`: DB本体（Tortoise-ORMモデル）
+    * `supplier_pydantic`: 出力用（ID等を含む）
+    * `supplier_pydanticIn`: 入力用（検証用）
+
+### CRUDについて
+- Create(POST): 'await Supplier.create(...)'
+- Read(GET): 'await Supplier.all()', 'await Supplier.get(id=...)'
+- Update(PUT): 'obj.update_from_dict(..)', 'obj.save()'
+- Delete: 'await obj.delete()'
+
+### 明日の目標 (Day 2)
+- [ ] a
