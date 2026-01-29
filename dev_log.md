@@ -33,5 +33,13 @@
 * MAIL_SSL_TLS: True (安全な通信を強制)
 * アプリパスワード: Googleアカウントの通常のパスワードではなく、2段階認証を有効にした上で発行する16桁の専用コード。
 
+### CORS (Cross-Origin Resource Sharing)
+* 同一生成元ポリシー：同じドメイン以外のプログラムからの命令は信じない
+* サーバー(FastAPI)はlocalhost:8000
+* フロントエンド(React)はlocalhost:3000
+* allow_credentials - Cookieや認証情報
+* allow_methods = ['*'] - GET, POST, PUT, DELETE全て許可
+
+
 ### 明日の目標 (Day 2)
 - [ ] db_urlを.envで管理
