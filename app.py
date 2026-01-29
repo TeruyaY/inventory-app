@@ -3,6 +3,19 @@ from tortoise.contrib.fastapi import register_tortoise
 from models import (supplier_pydantic, supplier_pydanticIn, Supplier)
 from models import (product_pydantic, product_pydanticIn, Product)
 
+# mail
+from typing import List
+from fastapi import BackgroundTasks, FastAPI
+from fastapi_mail import ConnectionConfig, FastMail, MessageSchema, MessageType, NameEmail
+from pydantic import BaseModel, EmailStr
+from starlette.responses import JSONResponse
+
+# dotenv
+from dotenv import dotenv_values
+
+# credentials
+credentials = dotenv_values(".env")
+
 app = FastAPI()
 
 @app.get('/')
@@ -83,6 +96,51 @@ async def update_product(product_id: int, update_info: product_pydanticIn):
 async def delete_product(product_id: int):
     await Product.get(id=product_id).delete()
     return {"status":"ok"}
+
+
+class EmailSchema(BaseModel):
+    email: List[NameEmail]  # Supports both "user@example.com" and "Name <user@example.com>" formats
+
+class EmailContent(BaseModel):
+    message: str
+    subject: str
+
+conf = ConnectionConfig(
+    MAIL_USERNAME = credentials['EMAIL'],
+    MAIL_PASSWORD = credentials['PASS'],
+    MAIL_FROM = credentials['EMAIL'],
+    MAIL_PORT = 465,
+    MAIL_SERVER = "smtp.gmail.com",
+    MAIL_STARTTLS = False,
+    MAIL_SSL_TLS = True,
+    USE_CREDENTIALS = True,
+    VALIDATE_CERTS = True
+)
+
+@app.post('/email/{product_id}')
+async def send_email(product_id: int, content: EmailContent):
+    product = await Product.get(id=product_id)
+    supplier = await product.supplied_by
+    supplier_email = [supplier.email]
+
+    html = """
+    <h5>John Doe Business LTD</h5>
+    <br>
+    <p>{content.message}</p>
+    <br>
+    <h6>>Best Regards/h6>
+    <h6>John Business LTD</h6>
+    """
+    message = MessageSchema(
+        subject={content.subject},
+        recipients=supplier_email,  # Can include "Name <email@domain.com>" format
+        body=html,
+        subtype=MessageType.html)
+
+    fm = FastMail(conf)
+    await fm.send_message(message)
+    return {"status":"ok"}
+
 
 register_tortoise(
     app,

@@ -23,5 +23,15 @@
 - Update(PUT): 'obj.update_from_dict(..)', 'obj.save()'
 - Delete: 'await obj.delete()'
 
+### 環境変数
+* .envファイル：キーと値のペアを保存するテキストファイルでGit管理しちゃだめ
+* python-dotev：.envファイルを読み込みPythonの辞書形式や環境変数として扱う
+
+### Gmailを使うための必須設定:
+* MAIL_SERVER: "smtp.gmail.com"
+* MAIL_PORT: 465 (SSL用)
+* MAIL_SSL_TLS: True (安全な通信を強制)
+* アプリパスワード: Googleアカウントの通常のパスワードではなく、2段階認証を有効にした上で発行する16桁の専用コード。
+
 ### 明日の目標 (Day 2)
-- [ ] a
+- [ ] db_urlを.envで管理
