@@ -22,9 +22,9 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 # adding cors urls
-
 origins = [
-    'http://localhost:3000'
+    'http://localhost:3000', # CRA用
+    'http://localhost:5173', # Vite用 (追加)
 ]
 
 # add middleware

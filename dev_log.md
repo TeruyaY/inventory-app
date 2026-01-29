@@ -40,6 +40,18 @@
 * allow_credentials - Cookieや認証情報
 * allow_methods = ['*'] - GET, POST, PUT, DELETE全て許可
 
+### Create React App vs Vite
+* 拡張子：　.js or .jsx -> .jsx
+* 軌道コマンド：　npm start -> npm run dev
+* 環境変数：　process.env.REACT_APP_XXX -> import.meta.env.VITE_XXX
+* HTMLの場所：　public/index.html -> index.html
+* デフォルトポート：　3000 -> 5173
+
+
+### まとめ
+* バックエンドをある程度習得することができた
+* フロント構築でネットワークエラー
 
 ### 明日の目標 (Day 2)
 - [ ] db_urlを.envで管理
+- [ ] フロント構築
