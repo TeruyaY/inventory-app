@@ -1,16 +1,33 @@
-# Python
-__pycache__/
+# --- Backend (Python) ---
+backend/__pycache__/
 *.pyc
-venv/
-
+backend/venv/
 # Environment variables (Secrets)
 .env
 
-# OS files
-Thumbs.db
+# --- Frontend (Node/Vite) ---
+front_end/node_modules/
+front_end/dist/
+front_end/dist-ssr/
+front_end/*.local
 
-# Editor settings
+# --- Frontend Logs ---
+front_end/logs
+front_end/*.log
+front_end/npm-debug.log*
+front_end/yarn-debug.log*
+front_end/yarn-error.log*
+front_end/pnpm-debug.log*
+front_end/lerna-debug.log*
+
+# --- Editor & OS Specific ---
 .vscode/
-
-# credential
-.env
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
