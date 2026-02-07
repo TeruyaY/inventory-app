@@ -19,15 +19,19 @@ function App() {
           <Routes>  
             <Route path="/" element={
               <div className="row">
-                <div className = "col-sm-10 col-xm-12 mr-auto ml-auto mt-4 mb-4">
+                <div className="col-sm-10 col-xm-12 mr-auto ml-auto mt-4 mb-4">
                   <ProductsTable />
                 </div>
               </div>
-            
-              } /> 
+            } /> 
 
             <Route path="/addproduct" element={
-              <AddProducts />} />
+              <div className="row">
+                <div className="col-sm-10 col-xm-12 mr-auto ml-auto mt-4 mb-4">
+                  <AddProducts />
+                </div>
+              </div>
+            } />
           </Routes>
         </ProductProvider>
       </Router>
