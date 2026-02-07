@@ -7,6 +7,8 @@ import viteLogo from '/vite.svg'
 import {ProductProvider} from './ProductContext.jsx'
 import ProductsTable from './components/ProductsTable.jsx'
 import AddProducts from './components/AddProducts.jsx'
+import UpdateProducts from './components/UpdateProducts.jsx'
+import {UpdateProductContextProvider} from './UpdateProductContext.jsx'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,23 +18,33 @@ function App() {
       <Router>
         <ProductProvider>
           <NavBar /> 
-          <Routes>  
-            <Route path="/" element={
-              <div className="row">
-                <div className="col-sm-10 col-xm-12 mr-auto ml-auto mt-4 mb-4">
-                  <ProductsTable />
+          <UpdateProductContextProvider>
+            <Routes>  
+              <Route path="/" element={
+                <div className="row">
+                  <div className="col-sm-10 col-xm-12 mr-auto ml-auto mt-4 mb-4">
+                    <ProductsTable />
+                  </div>
                 </div>
-              </div>
-            } /> 
+              } /> 
 
-            <Route path="/addproduct" element={
-              <div className="row">
-                <div className="col-sm-10 col-xm-12 mr-auto ml-auto mt-4 mb-4">
-                  <AddProducts />
+              <Route path="/addproduct" element={
+                <div className="row">
+                  <div className="col-sm-10 col-xm-12 mr-auto ml-auto mt-4 mb-4">
+                    <AddProducts />
+                  </div>
                 </div>
-              </div>
-            } />
-          </Routes>
+              } />
+
+              <Route path="/updateproduct" element={
+                  <div className="row">
+                  <div className="col-sm-10 col-xm-12 mr-auto ml-auto mt-4 mb-4">
+                    <UpdateProducts />
+                  </div>
+                </div>
+              } />
+            </Routes>
+          </UpdateProductContextProvider>
         </ProductProvider>
       </Router>
     </div>

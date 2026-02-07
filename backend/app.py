@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from models import (supplier_pydantic, supplier_pydanticIn, Supplier)
 from models import (product_pydantic, product_pydanticIn, Product)
+from decimal import Decimal
 
 # mail
 from typing import List
@@ -81,7 +82,7 @@ async def add_product(supplier_id: int, product_detail: product_pydanticIn):
     # 2. 届いたデータを辞書に変換
     product_info = product_detail.dict(exclude_unset=True)
     # 3. 売上(revenue)を計算して辞書に追加
-    product_info['revenue'] = float(product_info['quantity_sold'] * product_info['unit_price'])
+    product_info['revenue'] = Decimal(product_info['quantity_sold'] * product_info['unit_price'])
     # 4. 保存（**で辞書を展開し、さらに仕入れ先情報を添える）
     product_obj = await Product.create(**product_info, supplied_by=supplier)
     # 5. レスポンス用に変換して返す
@@ -106,9 +107,9 @@ async def update_product(product_id: int, update_info: product_pydanticIn):
     product.quantity_in_stock = update_info['quantity_in_stock']    
     product.quantity_sold += update_info['quantity_sold']
     product.unit_price = update_info['unit_price']
-    product.revenue += float(update_info['quantity_sold'] * update_info['unit_price'] + update_info['revenue'])
+    product.revenue += Decimal(update_info['quantity_sold'] * update_info['unit_price'] + update_info['revenue'])
     await product.save()
-    response = await product_pydnatic.from_tortoise_orm(product)
+    response = await product_pydantic.from_tortoise_orm(product)
     return {"status":"ok", "data":response}
 
 @app.delete('/product/{product_id}')
