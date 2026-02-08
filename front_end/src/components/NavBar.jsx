@@ -29,7 +29,7 @@ const NavBar = () => {
                 <Nav className="mr-auto">
                     <Badge className="mt-2" variant="primary">Products In stock { products.data.length }</Badge>
                 </Nav>
-                    <Form onSubmit={ filterProduct } inLine>
+                    <Form onSubmit={ filterProduct } className="d-flex align-items-center">
                         <Link to="/addproduct" className="btn btn-primary btn-sm mr-4">Add Product</Link>
                         <FormControl value={search} onChange={updateSearch} type="text" placeholder="Search" className="mr-sm-2" />
                     <Button type="submit" variant="outline-primary">Search</Button>
