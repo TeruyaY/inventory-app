@@ -21,7 +21,7 @@ The following are key features and concepts of the application:
 - **Component-based UI:** The UI was built using React functional components, making the codebase easier to maintain and scale.
 - **Asynchronous Data Handling:** FastAPI's async capabilties are used to handle database operations (especially queries) without blocking the server.  
 
-###　Screenshot
+### Screenshot
 | Home Screen（Product Data） | Product Add Page |
 | :---: | :---: |
 | ![Home Screen](./screenshots/home_screen.png) | ![Product Add Page](./screenshots/product_add_page.png) |  
