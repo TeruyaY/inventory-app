@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import {Form, Button, Card} from 'react-bootstrap'
 
+// 💡 1. 環境変数を取得（Viteのルール：import.meta.env を使う）
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const AddProducts = () => {
 
@@ -25,7 +27,7 @@ const AddProducts = () => {
         e.preventDefault();
         console.log(productInfo)
     
-        const url = "http://localhost:8000/product/" + productInfo['Supplier'] 
+        const url = `${API_BASE_URL}/product/${productInfo['Supplier']}`;
 
         const response = await fetch(
             url, {

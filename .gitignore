@@ -4,6 +4,11 @@ backend/__pycache__/
 backend/venv/
 # Environment variables (Secrets)
 .env
+# バックエンドの環境変数（以前の設定にあるはずですが念のため）
+backend/.env
+# フロントエンドの環境変数
+front_end/.env.local
+front_end/.env.production
 
 # --- Frontend (Node/Vite) ---
 front_end/node_modules/
@@ -31,3 +36,8 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# --- Database ---
+backend/database.sqlite3
+backend/database.sqlite3-shm
+backend/database.sqlite3-wal

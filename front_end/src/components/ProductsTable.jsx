@@ -5,6 +5,9 @@ import {UpdateContext} from '../UpdateProductContext'
 import ProductsRow from './ProductsRow'
 import {useNavigate} from 'react-router-dom'
 
+// 💡 1. 環境変数を取得（Viteのルール：import.meta.env を使う）
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 const ProductsTable = () => {
     const [products, setProducts] = useContext(ProductContext)
     const [updateProductInfo, setUpdateProductInfo] = useContext(UpdateContext)
@@ -12,7 +15,7 @@ const ProductsTable = () => {
     const navigate = useNavigate()
 
     const handleDelete = (id) => {
-        fetch('http://127.0.0.1:8000/product/' + id, {
+        fetch(`${API_BASE_URL}/product/${id}`, {
             method: "DELETE",
             headers: {
                 accept: 'application/json'
@@ -46,7 +49,7 @@ const ProductsTable = () => {
     }
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/product')
+        fetch(`${API_BASE_URL}/product`)
             .then(resp => {
                 if (!resp.ok) throw new Error("Network response was not ok");
                 return resp.json();

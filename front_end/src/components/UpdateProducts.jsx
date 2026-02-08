@@ -2,6 +2,8 @@ import React, {useContext, useState} from 'react'
 import {Form, Button, Card} from 'react-bootstrap'
 import {UpdateContext} from '../UpdateProductContext.jsx'
 
+// 💡 1. 環境変数を取得（Viteのルール：import.meta.env を使う）
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const UpdateProduct = () => {
     const [updateProductInfo, setUpdateProductInfo] = useContext(UpdateContext)
@@ -13,7 +15,7 @@ const UpdateProduct = () => {
     const postData = async (e) => {
         e.preventDefault()
 
-        const url = 'http://localhost:8000/product/' + updateProductInfo['ProductId']
+        const url = `${API_BASE_URL}/product/${updateProductInfo['ProductId']}`;
 
         const response = await fetch(url, {
             method: "PUT",
