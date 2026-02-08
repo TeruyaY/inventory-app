@@ -6,6 +6,20 @@ This web application is full-stack inventory management solution built with Fast
 
 ### Description
 
+#### About the Project
+
+The object of this project was to understand the end-to-end flow of full-stack developing. Therefore, the code follows the tutorial closely to ensure a solid function.
+
+Based on the knowledge gained here, I have also developped a separate Poker Bankroll Management project which applies 
+
+#### About the Application
+
+The following are key features and concepts of the application
+
+- **Database relationship using foreign keys:** Each product was linked with each supplier using supplier_id.
+- **CRUD operations:** The Product Database can be created, read, updated, and deleted from the frontend
+- **Component-based UI:** The UI was built using React functional components, making the codebase easier to maintain and scale.
+- **Asynchronous Data Handling:** FastAPI's async capabilties are used to handle database operations (especially queries) without blocking the server.
 
 ## 2. Setup & Usage
 
@@ -65,8 +79,6 @@ npm install
 npm run dev
 ```
 
-## 3. Development/Management
-
 ### Project Structure
 
 ```text
@@ -85,3 +97,19 @@ variables
     ├── src/                    # React component
     └── vite.config.js          # VIte configuration
 ```
+
+## 3. Project Management Information
+
+### License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+### Acknowledgments
+
+This project was built for educational purposes following a YouTube tutorial.
+- **Tutorial Video**: FastAPI and React - Code With Prince (https://youtube.com/playlist?list=PLU7aW4OZeUzwYXbC_mbQJdAU7JUu81RZo&si=e5AzozGGDrv-GDW8)
+- **Original Source Code**: InventoryManagementSeries - Princekrampah (https://github.com/Princekrampah/InventoryManagementSeries)
+
+### Contact
+
+TeruyaY - https://github.com/TeruyaY
