@@ -21,6 +21,11 @@
 - **部品単位のUI設計:** UIはReactの部品を使用して構築されており、コードベースのメンテナンスと拡張がより容易になっている。
 - **データの非同期処理：** FastAPIの非同期（async）機能を、サーバーをブロックすることなくデータベース操作（特にクエリ）を処理するために使用。  
 
+###　スクリーンショット
+| ホーム画面（商品データ表示） | 商品追加ページ |
+| :---: | :---: |
+| ![Home Screen](./screenshots/home_screen.png) | ![Product Add Page](./screenshots/product_ad_page.png) |  
+
 ## 2. セットアップと実行方法 (Setup & Usage)
 
 ### 技術スタック (Tech Stack)
