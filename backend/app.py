@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI
 from tortoise.contrib.fastapi import register_tortoise
 from models import (supplier_pydantic, supplier_pydanticIn, Supplier)
@@ -12,21 +13,23 @@ from pydantic import BaseModel, EmailStr
 from starlette.responses import JSONResponse
 
 # dotenv
-from dotenv import dotenv_values
-
-# credentials
-credentials = dotenv_values(".env")
+from dotenv import load_dotenv
+load_dotenv()
 
 # adding cors headers
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
+# 💡 環境変数からフロントエンドのURLを取得（未設定ならローカル）
+frontend_url = os.getenv("FRONTEND_URL", "http://localhost:5173")
+
 # adding cors urls
 origins = [
     'http://localhost:3000', # CRA用
     'http://localhost:5173', # Vite用 (追加)
     "http://127.0.0.1:5173",
+    frontend_url,
 ]
 
 # add middleware
@@ -67,7 +70,7 @@ async def update_supplier(supplier_id: int, update_info: supplier_pydanticIn):
     supplier.email = update_info['email']
     supplier.phone = update_info['phone']
     await supplier.save()
-    response = await supplier_pydnatic.from_tortoise_orm(supplier)
+    response = await supplier_pydantic.from_tortoise_orm(supplier)
     return {"status":"ok", "data": response}
 
 @app.delete('/supplier/{supplier_id}')
@@ -126,9 +129,9 @@ class EmailContent(BaseModel):
     subject: str
 
 conf = ConnectionConfig(
-    MAIL_USERNAME = credentials['EMAIL'],
-    MAIL_PASSWORD = credentials['PASS'],
-    MAIL_FROM = credentials['EMAIL'],
+    MAIL_USERNAME = os.getenv('EMAIL'), # 💡 credentials辞書ではなくos.getenvを使う
+    MAIL_PASSWORD = os.getenv('PASS'),
+    MAIL_FROM = os.getenv('EMAIL'),
     MAIL_PORT = 465,
     MAIL_SERVER = "smtp.gmail.com",
     MAIL_STARTTLS = False,
