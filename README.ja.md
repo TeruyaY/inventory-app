@@ -2,24 +2,24 @@
 
 ## 1. 導入セクション（Introduction）
 
-学習用にプロジェクトとして開発している、FastAPI と React を使った在庫管理アプリケーションです。
+学習用にプロジェクトとして開発している、FastAPI と React を使った在庫管理アプリケーションである。
 
 ### 説明　(Description)
 
 #### プロジェクト全体について　(About the Project)
 
-The object of this project was to understand the end-to-end flow of full-stack developing. Therefore, the code follows the tutorial closely to ensure a solid function.
+本プロジェクトの目的はフルスタック開発の流れを学ぶことである。そのため、確実な動作を保証するためコードはチュートリアルに忠実にそって作成されている。
 
-Based on the knowledge gained here, I have also developped a separate Poker Bankroll Management project which applies 
+また本プロジェクトで得た知識を応用して、別でオリジナルのポーカー収支管理プロジェクトを作成した。
 
 #### アプリケーションについて　(About the Application)
 
-The following are key features and concepts of the application
+本アプリケーションにおける主要機能と重要概念は以下の通りである：
 
-- **Database relationship using foreign keys:** Each product was linked with each supplier using supplier_id.
-- **CRUD operations:** The Product Database can be created, read, updated, and deleted from the frontend
-- **Component-based UI:** The UI was built using React functional components, making the codebase easier to maintain and scale.
-- **Asynchronous Data Handling:** FastAPI's async capabilties are used to handle database operations (especially queries) without blocking the server.
+- **外部キーを用いたデータベースの関連付け：**各在庫商品は仕入れ先とsupplier_idを用いて関連付けされる。
+- **CRUD操作：**フロントエンドを経由して商品データベースでの商品の作成(Create)、読み取り(Read)、更新(Update)、削除(Delete)が可能。
+- **部品単位のUI設計:** UIはReactの部品を使用して構築されており、コードベースのメンテナンスと拡張がより容易になっている。
+- **データの非同期処理：** FastAPIの非同期（async）機能を、サーバーをブロックすることなくデータベース操作（特にクエリ）を処理するために使用。
 
 ## 2. セットアップと実行方法 (Setup & Usage)
 

@@ -10,11 +10,11 @@ This web application is full-stack inventory management solution built with Fast
 
 The object of this project was to understand the end-to-end flow of full-stack developing. Therefore, the code follows the tutorial closely to ensure a solid function.
 
-Based on the knowledge gained here, I have also developped a separate Poker Bankroll Management project which applies 
+Based on the knowledge gained here, I have also developped a separate Poker Bankroll Management project.
 
 #### About the Application
 
-The following are key features and concepts of the application
+The following are key features and concepts of the application:
 
 - **Database relationship using foreign keys:** Each product was linked with each supplier using supplier_id.
 - **CRUD operations:** The Product Database can be created, read, updated, and deleted from the frontend
