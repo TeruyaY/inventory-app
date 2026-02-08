@@ -24,7 +24,7 @@
 ###　スクリーンショット
 | ホーム画面（商品データ表示） | 商品追加ページ |
 | :---: | :---: |
-| ![Home Screen](./screenshots/home_screen.png) | ![Product Add Page](./screenshots/product_ad_page.png) |  
+| ![Home Screen](./screenshots/home_screen.png) | ![Product Add Page](./screenshots/product_add_page.png) |  
 
 ## 2. セットアップと実行方法 (Setup & Usage)
 

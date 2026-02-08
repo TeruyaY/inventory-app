@@ -24,7 +24,7 @@ The following are key features and concepts of the application:
 ###　Screenshot
 | Home Screen（Product Data） | Product Add Page |
 | :---: | :---: |
-| ![Home Screen](./screenshots/home_screen.png) | ![Product Add Page](./screenshots/product_ad_page.png) |  
+| ![Home Screen](./screenshots/home_screen.png) | ![Product Add Page](./screenshots/product_add_page.png) |  
 
 ## 2. Setup & Usage
 
